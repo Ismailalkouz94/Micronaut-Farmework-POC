@@ -5,19 +5,37 @@ micronaut:
   server:
     port: 8081
 
+  security:
+    enabled: true
+    endpoints:
+      login:
+        enabled: true
+      oauth:
+        enabled: true
+    token:
+      jwt:
+        enabled: true
+        signatures:
+          secret:
+            generator:
+              secret: pleaseChangeThisSecretForANewOne
+              jws-algorithm: HS256
+
 datasources:
   default:
-    url: jdbc:mysql://localhost:3306/ITS
+    url: jdbc:mysql://localhost:3306/AP
     driverClassName: com.mysql.cj.jdbc.Driver
     username: root
     password: ""
 
+
 jpa:
   default:
-    packages-to-scan:
-      - 'com.example'
+    entity-scan:
+      packages:
+        - 'com.example.entity'
     properties:
       hibernate:
-      hbm2ddl:
-        auto: update
-      show_sql: true
+        hbm2ddl:
+          auto: update
+        show_sql: true

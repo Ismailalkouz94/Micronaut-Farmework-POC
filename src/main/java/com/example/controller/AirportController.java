@@ -5,10 +5,13 @@ import com.example.service.AirportService;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
+import io.micronaut.security.annotation.Secured;
+import io.micronaut.security.rules.SecurityRule;
 
 import javax.inject.Inject;
 
 @Controller("/airport")
+@Secured(SecurityRule.IS_AUTHENTICATED)
 public class AirportController {
 
     /**
@@ -41,6 +44,7 @@ public class AirportController {
      * @return
      */
     @Post("/saveAirport")
+    @Secured("ADMIN")
     @Produces(MediaType.APPLICATION_JSON)
     public Airport saveOrUpdate(@Body Airport airport) {
         return airportService.saveOrupdateAirport(airport);
