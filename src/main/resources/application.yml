@@ -21,6 +21,10 @@ micronaut:
               secret: pleaseChangeThisSecretForANewOne
               jws-algorithm: HS256
 
+  views:
+      thymeleaf:
+        enabled: true
+
 datasources:
   default:
     url: jdbc:mysql://localhost:3306/AP

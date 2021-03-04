@@ -111,6 +111,27 @@
       <artifactId>micronaut-jdbc-hikari</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>io.micronaut.views</groupId>
+      <artifactId>micronaut-views-thymeleaf</artifactId>
+    </dependency>
+
+    <!--Soring security-->
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>5.2.2.RELEASE</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.micronaut.spring/micronaut-spring -->
+    <dependency>
+      <groupId>io.micronaut.spring</groupId>
+      <artifactId>micronaut-spring</artifactId>
+      <version>3.1.0</version>
+      <scope>runtime</scope>
+    </dependency>
+
 
 
   </dependencies>
@@ -132,6 +153,12 @@
               <groupId>io.micronaut.data</groupId>
               <artifactId>micronaut-data-processor</artifactId>
               <version>2.0.1</version>
+            </path>
+
+            <path>
+              <groupId>io.micronaut.spring</groupId>
+              <artifactId>micronaut-spring-annotation</artifactId>
+              <version>1.0.0.RC1</version>
             </path>
           </annotationProcessorPaths>
           <compilerArgs>

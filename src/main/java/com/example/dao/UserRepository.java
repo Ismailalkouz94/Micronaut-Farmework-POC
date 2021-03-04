@@ -10,6 +10,6 @@ import io.micronaut.data.repository.CrudRepository;
 public interface UserRepository extends CrudRepository<User, Long>{
  
  @Executable
- User findUserByUserNameAndPassword(String userName,String password);
+ User findUserByUserName(String userName);
  
 }
