@@ -1,14 +1,15 @@
 package com.example.dao;
 
-import com.example.entity.User;
+import com.example.entity.Role;
+import com.example.model.UserAuthority;
 import io.micronaut.context.annotation.Executable;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.repository.CrudRepository;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long>{
+public interface RoleRepository extends CrudRepository<Role, Long>{
 
  @Executable
- User findUserByUserName(String userName);
+ Role findRoleByAuthority(UserAuthority authority);
 
 }

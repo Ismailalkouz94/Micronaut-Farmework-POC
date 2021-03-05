@@ -1,5 +1,5 @@
 package com.example.model;
 
-public enum UserRole {
+public enum UserAuthority {
     ADMIN,USER,VIEW
 }
