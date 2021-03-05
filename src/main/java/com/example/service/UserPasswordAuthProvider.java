@@ -32,12 +32,13 @@ public class UserPasswordAuthProvider implements AuthenticationProvider {
         String username = req.getIdentity().toString();
         String password = req.getSecret().toString();
         User user = userRepository.findUserByUserName(username);
-        List<Role> roles = userRoleRepository.findRoleByUser(user);
 
         Optional<AuthenticationFailed> authenticationFailed = validate(user, password);
         if (authenticationFailed.isPresent()) {
             return Flowable.just(authenticationFailed.get());
         }
+
+        List<Role> roles = userRoleRepository.findRoleByUser(user);
         UserDetails details = new UserDetails(username, roles.stream().map(x -> x.getAuthority().toString()).collect(Collectors.toList()));
         return Flowable.just(details);
 
